@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/favicon.jpg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="shell,vim," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="vim编辑v 选中 j k ctr+d ctr+u ctr+f ctr+f vim -b $fileName(二进制打开文件)可看到^M  :%s/\r//g  替换命令替换 替换1234567899,%s/cur7/cur6/g 从第9行开始替换:%s/cur7/cur6/g:s/vivian/sky/ 替换当前行第">
+<meta name="keywords" content="shell,vim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux积累">
+<meta property="og:url" content="http://yoursite.com/2018/01/04/linux积累/index.html">
+<meta property="og:site_name" content="cloudersjun&#39;s blog">
+<meta property="og:description" content="vim编辑v 选中 j k ctr+d ctr+u ctr+f ctr+f vim -b $fileName(二进制打开文件)可看到^M  :%s/\r//g  替换命令替换 替换1234567899,%s/cur7/cur6/g 从第9行开始替换:%s/cur7/cur6/g:s/vivian/sky/ 替换当前行第一个 vivian 为 sky:s/vivian/sky/g 替换当前行所有 v">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-04T11:34:59.650Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux积累">
+<meta name="twitter:description" content="vim编辑v 选中 j k ctr+d ctr+u ctr+f ctr+f vim -b $fileName(二进制打开文件)可看到^M  :%s/\r//g  替换命令替换 替换1234567899,%s/cur7/cur6/g 从第9行开始替换:%s/cur7/cur6/g:s/vivian/sky/ 替换当前行第一个 vivian 为 sky:s/vivian/sky/g 替换当前行所有 v">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/04/linux积累/"/>
+
+
+
+
+
+  <title>linux积累 | cloudersjun's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">cloudersjun's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">搬砖经验</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bars"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/04/linux积累/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cloudersjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/favicon.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cloudersjun's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux积累</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-04T17:47:57+08:00">
+                2018-01-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/shell/" itemprop="url" rel="index">
+                    <span itemprop="name">shell</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次ƒ
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><h2 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h2><pre><code>v 选中
+j k ctr+d ctr+u ctr+f ctr+f
+vim -b $fileName(二进制打开文件)可看到^M  :%s/\r//g  替换命令替换
+</code></pre><h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">9,%s/cur7/cur6/g 从第9行开始替换</span><br><span class="line">:%s/cur7/cur6/g</span><br><span class="line">:s/vivian/sky/ 替换当前行第一个 vivian 为 sky</span><br><span class="line">:s/vivian/sky/g 替换当前行所有 vivian 为 sky</span><br><span class="line">n 为数字，若 n 为 .，表示从当前行开始到最后一行:</span><br><span class="line">:n,$s/vivian/sky/ 替换第 n 行开始到最后一行中每一行的第一个 vivian 为 sky</span><br><span class="line">:n,$s/vivian/sky/g 替换第 n 行开始到最后一行中每一行所有 vivian 为 sky</span><br><span class="line">:%s/vivian/sky/(等同于 :g/vivian/s/sky/) 替换每一行的第一个 vivian 为 sky</span><br><span class="line">:%s/vivian/sky/g(等同于 :g/vivian/s/sky/g) 替换每一行中所有 vivian 为 sky</span><br></pre></td></tr></table></figure>
+<p>转义:可以使用 # 作为分隔符，此时中间出现的 / 不会作为分隔符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:s#vivian/#sky/# 替换当前行第一个 vivian/ 为 sky/</span><br><span class="line">:%s+/oradata/apras/+/user01/apras1+ (使用+ 来 替换 / )： /oradata/apras/替换成/user01/apras1/</span><br></pre></td></tr></table></figure>
+<h2 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">awk [-F  field-separator]  &apos;commands&apos;  input-file(s)</span><br><span class="line">其中，commands 是真正awk命令，[-F域分隔符]是可选的。 </span><br><span class="line">input-file(s) 是待处理的文件。在awk中，文件的每一行中，由域分隔符分开的每一项称为一个域。</span><br><span class="line">通常，在不指名-F域分隔符的情况下，默认的域分隔符是空格。</span><br></pre></td></tr></table></figure>
+<p>以 ‘,’ 为分隔符，统计\$3的计数数据:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F &apos;,&apos; &apos;&#123;arr[$3]+=1&#125;END&#123;for(i in arr)print i,arr[i]&#125;&apos; temp1|wc -l</span><br></pre></td></tr></table></figure></p>
+<p>计算最大最小平均值:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">awk &apos;&#123;arr[$1]++&#125;END&#123;for(i in arr) &#123; if(arr[i]&gt;=50) print i,arr[i]; fi&#125;&#125;&apos;</span><br><span class="line">awk &apos;&#123;sum+=$1&#125; END &#123;print &quot;Sum = &quot;, sum&#125;&apos;</span><br><span class="line">awk &apos;&#123;sum+=$1&#125; END &#123;print &quot;Average = &quot;, sum/NR&#125;&apos;</span><br><span class="line">awk &apos;BEGIN &#123;max = 0&#125; &#123;if ($1&gt;max) max=$1 fi&#125; END &#123;print &quot;Max=&quot;, max&#125;&apos;</span><br><span class="line">awk &apos;BEGIN &#123;min = 1999999&#125; &#123;if ($1&lt;min) min=$1 fi&#125; END &#123;print &quot;Min=&quot;, min&#125;&apos;</span><br></pre></td></tr></table></figure></p>
+<h2 id="执行sql"><a href="#执行sql" class="headerlink" title="执行sql"></a>执行sql</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db_r=&quot;mysql -h $dbhost -udev -$pwd -e&quot;</span><br><span class="line">ret=`$db_r&quot;$sql&quot; --skip-column-name`</span><br><span class="line">for id in $ret</span><br><span class="line">	do</span><br><span class="line">	echo $id</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function f()&#123;</span><br><span class="line">	echo a</span><br><span class="line">&#125;</span><br><span class="line">f 0 CLICK</span><br><span class="line">today_click_c=$?</span><br></pre></td></tr></table></figure>
+<p>函数返回值在调用该函数后通过\$? 来获得。</p>
+<p>注意：所有函数在使用前必须定义。这意味着必须将函数放在脚本开始部分，直至shell解释器首次发现它时，才可以使用。调用函数仅使用其函数名即可。</p>
+<h2 id="if"><a href="#if" class="headerlink" title="if"></a>if</h2><h3 id="判断文件是否存在"><a href="#判断文件是否存在" class="headerlink" title="判断文件是否存在"></a>判断文件是否存在</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if [ ! -f &quot;$PATH&quot; ];then</span><br><span class="line">rm /home/jun.yu/earningMoney/d1/*$delday*</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if [ `ls -l $path*/|grep $delday|wc -l` -gt 0 ];</span><br><span class="line">then rm *$delday*;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for i in $(seq 0 3)</span><br><span class="line">do</span><br><span class="line"> echo &quot;adsource:&quot;$i</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的支持是我最大的动力</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="cloudersjun 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpeg" alt="cloudersjun 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/shell/" rel="tag"># shell</a>
+          
+            <a href="/tags/vim/" rel="tag"># vim</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/03/mysql/" rel="next" title="mysql">
+                <i class="fa fa-chevron-left"></i> mysql
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/favicon.jpg"
+                alt="cloudersjun" />
+            
+              <p class="site-author-name" itemprop="name">cloudersjun</p>
+              <p class="site-description motion-element" itemprop="description">来自一个长期搬砖员的经验</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/cloudersjun" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/u/2886607222/home" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/kindheart-demon/activities" target="_blank" title="ZhiHu">
+                    
+                      <i class="fa fa-fw fa-globe"></i>ZhiHu</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vim"><span class="nav-number">1.</span> <span class="nav-text">vim</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑"><span class="nav-number">1.1.</span> <span class="nav-text">编辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#替换"><span class="nav-number">1.2.</span> <span class="nav-text">替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk"><span class="nav-number">1.3.</span> <span class="nav-text">awk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行sql"><span class="nav-number">1.4.</span> <span class="nav-text">执行sql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">1.5.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if"><span class="nav-number">1.6.</span> <span class="nav-text">if</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断文件是否存在"><span class="nav-number">1.6.1.</span> <span class="nav-text">判断文件是否存在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环"><span class="nav-number">1.6.2.</span> <span class="nav-text">循环</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cloudersjun</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
