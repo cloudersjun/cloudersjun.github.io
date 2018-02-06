@@ -367,9 +367,10 @@
         
           
           vim编辑v 选中
-j k ctr+d ctr+u ctr+f ctr+f
+j k ctr+d ctr+u ctr+f ctr+b
 vim -b $fileName(二进制打开文件)可看到^M  :%s/\r//g  替换命令替换
-替换1234567899,%s/cur7/cur6/g 从第9行开始替换:%s/cur7/cur6/g:s/vivian/s
+u 在命令行模式下是撤销操作
+替换1234567899,%s/cur7/cur6/g 从第9行开始替换:%s/cur7/cu
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -517,15 +518,8 @@ vim -b $fileName(二进制打开文件)可看到^M  :%s/\r//g  替换命令替�
       
         
           
-          写作目的
-最近读了《高性能MySQL_第3版（中文）》决定写一篇专门的博客来记录所学所得,以及传播知识
-
-存储引擎MyISAM
-单独存放行数信息(count(*)不带筛选条件时不用读表);
-支持表锁,不支持行锁;
-不支持事务;
-对于blob以及text长字段也可以基于前500个字符加索引;
-可以设置
+          写作目的最近读了《高性能MySQL_第3版（中文）》决定写一篇专门的博客来记录所学所得,以及记录自己平时的积累经验，并传播给大家。
+存储引擎MyISAM单独存放行数信息(count(*)不带筛选条件时不用读表);支持表锁,不支持行锁;不支持事务;对于blob以及text长字段也可以基于前500个字符
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -675,10 +669,8 @@ vim -b $fileName(二进制打开文件)可看到^M  :%s/\r//g  替换命令替�
           
           Tomcat日志问题:
 问题描述:在apache下载tomcat到服务器运行，发现生成日志文件只有root用户有读写权限，普通用户无读权限，即生成文件权限为640.
-问题解决办法:在tomcat 的bin/catalina.sh 中配置UMASK字段,即配置文件生成的默认权限的掩码.
-
-
-          
+问题解决办法:在tomcat 的bin/catalina.sh 中配置UMASK字段,即配置文件生成的默认权限的掩码.maven sc
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/28/疑难杂症/#more" rel="contents">

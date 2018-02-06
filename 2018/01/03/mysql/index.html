@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="写作目的 最近读了《高性能MySQL_第3版（中文）》决定写一篇专门的博客来记录所学所得,以及传播知识  存储引擎MyISAM 单独存放行数信息(count(*)不带筛选条件时不用读表); 支持表锁,不支持行锁; 不支持事务; 对于blob以及text长字段也可以基于前500个字符加索引; 可以设置延迟更新索引; 仅有">
+<meta name="description" content="写作目的最近读了《高性能MySQL_第3版（中文）》决定写一篇专门的博客来记录所学所得,以及记录自己平时的积累经验，并传播给大家。 存储引擎MyISAM单独存放行数信息(count(*)不带筛选条件时不用读表);支持表锁,不支持行锁;不支持事务;对于blob以及text长字段也可以基于前500个字符加索引;可以设置延迟更新索引;仅有此类型支持地理空间搜索 InnoDB支持表锁和行锁;四个隔离级别(">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql">
 <meta property="og:url" content="http://yoursite.com/2018/01/03/mysql/index.html">
 <meta property="og:site_name" content="cloudersjun&#39;s blog">
-<meta property="og:description" content="写作目的 最近读了《高性能MySQL_第3版（中文）》决定写一篇专门的博客来记录所学所得,以及传播知识  存储引擎MyISAM 单独存放行数信息(count(*)不带筛选条件时不用读表); 支持表锁,不支持行锁; 不支持事务; 对于blob以及text长字段也可以基于前500个字符加索引; 可以设置延迟更新索引; 仅有此类型支持地理空间搜索  InnoDB 支持表锁和行锁; 四个隔离级别(可重复度">
+<meta property="og:description" content="写作目的最近读了《高性能MySQL_第3版（中文）》决定写一篇专门的博客来记录所学所得,以及记录自己平时的积累经验，并传播给大家。 存储引擎MyISAM单独存放行数信息(count(*)不带筛选条件时不用读表);支持表锁,不支持行锁;不支持事务;对于blob以及text长字段也可以基于前500个字符加索引;可以设置延迟更新索引;仅有此类型支持地理空间搜索 InnoDB支持表锁和行锁;四个隔离级别(">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-04T10:18:14.608Z">
+<meta property="og:updated_time" content="2018-02-06T11:42:10.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql">
-<meta name="twitter:description" content="写作目的 最近读了《高性能MySQL_第3版（中文）》决定写一篇专门的博客来记录所学所得,以及传播知识  存储引擎MyISAM 单独存放行数信息(count(*)不带筛选条件时不用读表); 支持表锁,不支持行锁; 不支持事务; 对于blob以及text长字段也可以基于前500个字符加索引; 可以设置延迟更新索引; 仅有此类型支持地理空间搜索  InnoDB 支持表锁和行锁; 四个隔离级别(可重复度">
+<meta name="twitter:description" content="写作目的最近读了《高性能MySQL_第3版（中文）》决定写一篇专门的博客来记录所学所得,以及记录自己平时的积累经验，并传播给大家。 存储引擎MyISAM单独存放行数信息(count(*)不带筛选条件时不用读表);支持表锁,不支持行锁;不支持事务;对于blob以及text长字段也可以基于前500个字符加索引;可以设置延迟更新索引;仅有此类型支持地理空间搜索 InnoDB支持表锁和行锁;四个隔离级别(">
 
 
 
@@ -357,28 +357,15 @@
       
 
       
-        <h1 id="写作目的"><a href="#写作目的" class="headerlink" title="写作目的"></a>写作目的</h1><blockquote>
-<pre><code>最近读了《高性能MySQL_第3版（中文）》决定写一篇专门的博客来记录所学所得,以及传播知识
-</code></pre></blockquote>
-<h1 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h1><h2 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h2><blockquote>
-<pre><code>单独存放行数信息(count(*)不带筛选条件时不用读表);
-支持表锁,不支持行锁;
-不支持事务;
-对于blob以及text长字段也可以基于前500个字符加索引;
-可以设置延迟更新索引;
-仅有此类型支持地理空间搜索
-</code></pre></blockquote>
-<h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><blockquote>
-<pre><code>支持表锁和行锁;
-四个隔离级别(可重复度(REPEATABLE READ)(默认),);
-聚簇索引,二级索引(非主键索引)必须包含主键索引;
-</code></pre></blockquote>
+        <h1 id="写作目的"><a href="#写作目的" class="headerlink" title="写作目的"></a>写作目的</h1><p>最近读了《高性能MySQL_第3版（中文）》决定写一篇专门的博客来记录所学所得,以及记录自己平时的积累经验，并传播给大家。</p>
+<h1 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h1><h2 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h2><p>单独存放行数信息(count(*)不带筛选条件时不用读表);<br>支持表锁,不支持行锁;<br>不支持事务;<br>对于blob以及text长字段也可以基于前500个字符加索引;<br>可以设置延迟更新索引;<br>仅有此类型支持地理空间搜索</p>
+<h2 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h2><p>支持表锁和行锁;<br>四个隔离级别(未提交读（READ UNCOMMITTED），提交读（READ COMMITTED），可重复读(REPEATABLE READ)(默认)，可串行（SERIALIZABLE），关于锁和事务有更详细的文档：<a href="https://tech.meituan.com/innodb-lock.html" target="_blank" rel="noopener">美团技术博客-Innodb中的事务隔离级别和锁的关系</a>);<br>聚簇索引,二级索引(非主键索引)必须包含主键索引;</p>
 <h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><h2 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h2><blockquote>
 <pre><code>    B-Tree索引
     (树形结构,只有两层节点,子节点之间有指向后面节点的指针):
     按照左前缀原则,从最左列开始查找;
     不能跳过前面的索引,即联合索引只能从第一列开始索引;
-    如果从某列是按照范围查询,则后面的列都无法使用索引查找
+    如果从某列是按照范围查询,则后面的列都无法使用索引查找，例如between
 哈希索引:
     只有精确匹配索引搜有的列的查询才有效(因为是计算hash值);
     不存储字段值;
@@ -392,7 +379,7 @@
 <ol>
 <li>独立的列,不能是表达式的一部分,也不能是函数,如column+3=4;</li>
 <li>前缀索引,当索引的列很长时可以模拟hash索引,或者选取部分字符作为索引,减少索引空间,而且尽量选择重复性低的字符,对于blob text 或者很长的varchar必须使用前缀索引,缺点是无法使用前缀索引order by 和group by,也无法使用前缀索引做覆盖扫描</li>
-<li>聚簇索引,不是一种索引类型,而是一种数据存储方式,叶子页包含了行的全部数据,但是节点页只包含了索引列,访问数据更快,使用覆盖索引时可以直接使用页节点的主键值,更新索引的代价很高,插入新行或者更新导致移动行时导致”页分裂”,页分裂将导致占用更多的磁盘空间,聚簇索引可能导致全表扫描变慢,尤其当行比较稀疏或者由于页分裂导致数据存储不连续时,二级索引的叶子节点包含引用行的主键列,且二级索引访问需要两次索引查找,因为存放的是”行指针”</li>
+<li>聚簇索引,不是一种索引类型,而是一种数据存储方式,叶子页包含了行的全部数据,但是节点页只包含了索引列,访问数据更快,使用覆盖索引时可以直接使用页节点的主键值,更新索引的代价很高,插入新行或者更新导致移动行时导致”页分裂”,页分裂将导致占用更多的磁盘空间,聚簇索引可能导致全表扫描变慢,尤其当行比较稀疏或者由于页分裂导致数据存储不连续时,二级索引的叶子节点包含引用行的主键列,且二级索引访问需要两次索引查找,因为存放的是”行指针”</li>
 <li>覆盖索引,如果一个索引包含（覆盖）所有需要查询的字段的值,这个索引被称为覆盖索引</li>
 </ol>
 </blockquote>
@@ -405,10 +392,10 @@
 <li>时间类型 DATETIME-存储的是YYYYMMDDHHMMSS的整数,TIMESTAMP-存储的是从1970年1月1日午夜来的秒数(只用4个字节)</li>
 <li>BIT 类型是字符类型 ‘0’=48 实际是ASII码值;SET类型无法通过索引查找,存储整数,按位炒作</li>
 <li>特殊类型 低于秒精度的时间错使用bigint,IPv4用无符号整数存储 INET_ATON()和INET_NTOA()函数做转换</li>
+<li>double 数据类型 格式 DOUBLE(M,D)M的含义是整个数的长度，数字长度，D是精度，几位小数</li>
 </ol>
 </blockquote>
-<h1 id="其他积累经验"><a href="#其他积累经验" class="headerlink" title="其他积累经验"></a>其他积累经验</h1><blockquote>
-<ol>
+<h1 id="其他积累经验"><a href="#其他积累经验" class="headerlink" title="其他积累经验"></a>其他积累经验</h1><ol>
 <li>转换成字符串时,空格会被忽略,而java中不会忽略,例如在数据库中是 “ abc”,在select where 条件中筛选 “abc” 会被筛出来,而在Java中再去匹配则会产生不相等问题</li>
 <li>where 条件中not in范围筛选可用关联替换表,然后关联字段 is null 用于等效筛选</li>
 <li>时间格式化函数 DATE_FORMAT(createtime,”%Y%m%d %H:%i:%s”)</li>
@@ -425,9 +412,9 @@
 <li>尽量的扩展索引,不要新建索引,因为索引建立太多会影响插入和删除的操作</li>
 <li>查询where条件数据类型不匹配也无法使用索引</li>
 <li>对于like查询,”%”不要放在前面</li>
-<li>字符串与数字比较不使用索引</li>
+<li>字符串与数字比较索引使用不到</li>
+<li>last_insert_id()与每个连接相关，由MySQL server来维护的，由每条连接维护独立的值，某条连接调用last_insert_id()获取到的值是这条连接最近一次insert操作执行后的自增值，该值不会被其它连接的sql语句所影响。<br>19.事务开启时，插入的数据不会被其他事务读到，事务级别至少是提交读</li>
 </ol>
-</blockquote>
 
       
     </div>

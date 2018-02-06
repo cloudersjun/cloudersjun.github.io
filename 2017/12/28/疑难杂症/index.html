@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Tomcat日志问题: 问题描述:在apache下载tomcat到服务器运行，发现生成日志文件只有root用户有读写权限，普通用户无读权限，即生成文件权限为640. 问题解决办法:在tomcat 的bin/catalina.sh 中配置UMASK字段,即配置文件生成的默认权限的掩码.">
+<meta name="description" content="Tomcat日志问题: 问题描述:在apache下载tomcat到服务器运行，发现生成日志文件只有root用户有读写权限，普通用户无读权限，即生成文件权限为640. 问题解决办法:在tomcat 的bin/catalina.sh 中配置UMASK字段,即配置文件生成的默认权限的掩码.maven scope问题 compile，缺省值，适用于所有阶段，会随着项目一起发布。  provided，类似c">
 <meta name="keywords" content="program,tomcat,log">
 <meta property="og:type" content="article">
 <meta property="og:title" content="疑难杂症">
 <meta property="og:url" content="http://yoursite.com/2017/12/28/疑难杂症/index.html">
 <meta property="og:site_name" content="cloudersjun&#39;s blog">
-<meta property="og:description" content="Tomcat日志问题: 问题描述:在apache下载tomcat到服务器运行，发现生成日志文件只有root用户有读写权限，普通用户无读权限，即生成文件权限为640. 问题解决办法:在tomcat 的bin/catalina.sh 中配置UMASK字段,即配置文件生成的默认权限的掩码.">
+<meta property="og:description" content="Tomcat日志问题: 问题描述:在apache下载tomcat到服务器运行，发现生成日志文件只有root用户有读写权限，普通用户无读权限，即生成文件权限为640. 问题解决办法:在tomcat 的bin/catalina.sh 中配置UMASK字段,即配置文件生成的默认权限的掩码.maven scope问题 compile，缺省值，适用于所有阶段，会随着项目一起发布。  provided，类似c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-04T10:27:30.814Z">
+<meta property="og:updated_time" content="2018-02-06T11:41:57.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="疑难杂症">
-<meta name="twitter:description" content="Tomcat日志问题: 问题描述:在apache下载tomcat到服务器运行，发现生成日志文件只有root用户有读写权限，普通用户无读权限，即生成文件权限为640. 问题解决办法:在tomcat 的bin/catalina.sh 中配置UMASK字段,即配置文件生成的默认权限的掩码.">
+<meta name="twitter:description" content="Tomcat日志问题: 问题描述:在apache下载tomcat到服务器运行，发现生成日志文件只有root用户有读写权限，普通用户无读权限，即生成文件权限为640. 问题解决办法:在tomcat 的bin/catalina.sh 中配置UMASK字段,即配置文件生成的默认权限的掩码.maven scope问题 compile，缺省值，适用于所有阶段，会随着项目一起发布。  provided，类似c">
 
 
 
@@ -359,7 +359,12 @@
       
         <h2 id="Tomcat日志问题"><a href="#Tomcat日志问题" class="headerlink" title="Tomcat日志问题:"></a>Tomcat日志问题:</h2><ul>
 <li>问题描述:在apache下载tomcat到服务器运行，发现生成日志文件只有root用户有读写权限，普通用户无读权限，即生成文件权限为640.</li>
-<li>问题解决办法:在tomcat 的bin/catalina.sh 中配置UMASK字段,即配置文件生成的默认权限的掩码.</li>
+<li>问题解决办法:在tomcat 的bin/catalina.sh 中配置UMASK字段,即配置文件生成的默认权限的掩码.<h2 id="maven-scope问题"><a href="#maven-scope问题" class="headerlink" title="maven scope问题"></a>maven scope问题</h2></li>
+<li>compile，缺省值，适用于所有阶段，会随着项目一起发布。 </li>
+<li>provided，类似compile，期望JDK、容器或使用者会提供这个依赖。如servlet.jar。 </li>
+<li>runtime，只在运行时使用，如JDBC驱动，适用运行和测试阶段。 </li>
+<li>test，只在测试时使用，用于编译和运行测试代码。不会随项目发布。 </li>
+<li>system，类似provided，需要显式提供包含依赖的jar，Maven不会在Repository中查找它</li>
 </ul>
 
       
@@ -594,7 +599,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat日志问题"><span class="nav-number">1.</span> <span class="nav-text">Tomcat日志问题:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat日志问题"><span class="nav-number">1.</span> <span class="nav-text">Tomcat日志问题:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven-scope问题"><span class="nav-number">2.</span> <span class="nav-text">maven scope问题</span></a></li></ol></div>
             
 
           </div>
