@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="跳跃表介绍跳跃表实现跳跃表实际实际运用跳跃表和红黑树对比">
+<meta name="description" content="跳跃表介绍如图：生成跳跃表时，随机抛硬币，正面向上跃迁一级，每一级都做相同处理。查找速度在O(logn)时间复杂度的动态数据结构。具有实现简单的有点，因为是链表的结构。术语：具有高概率是O(logn)。   概率：1P = 1-O(1/(n^α))(α≥1) 证明：引入概念布尔不等式：指对于全部事件的概率总和不大于单个事件的概率总和。跳跃表的层数为O(logn)的概率为：P{level&amp;gt;cl">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="跳跃表">
 <meta property="og:url" content="http://yoursite.com/2017/12/28/跳跃表/index.html">
 <meta property="og:site_name" content="cloudersjun&#39;s blog">
-<meta property="og:description" content="跳跃表介绍跳跃表实现跳跃表实际实际运用跳跃表和红黑树对比">
+<meta property="og:description" content="跳跃表介绍如图：生成跳跃表时，随机抛硬币，正面向上跃迁一级，每一级都做相同处理。查找速度在O(logn)时间复杂度的动态数据结构。具有实现简单的有点，因为是链表的结构。术语：具有高概率是O(logn)。   概率：1P = 1-O(1/(n^α))(α≥1) 证明：引入概念布尔不等式：指对于全部事件的概率总和不大于单个事件的概率总和。跳跃表的层数为O(logn)的概率为：P{level&amp;gt;cl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-06T12:02:52.939Z">
+<meta property="og:image" content="https://preview.ibb.co/bAtjRH/IMG_20180110_215307.jpg">
+<meta property="og:updated_time" content="2018-02-07T02:40:17.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跳跃表">
-<meta name="twitter:description" content="跳跃表介绍跳跃表实现跳跃表实际实际运用跳跃表和红黑树对比">
+<meta name="twitter:description" content="跳跃表介绍如图：生成跳跃表时，随机抛硬币，正面向上跃迁一级，每一级都做相同处理。查找速度在O(logn)时间复杂度的动态数据结构。具有实现简单的有点，因为是链表的结构。术语：具有高概率是O(logn)。   概率：1P = 1-O(1/(n^α))(α≥1) 证明：引入概念布尔不等式：指对于全部事件的概率总和不大于单个事件的概率总和。跳跃表的层数为O(logn)的概率为：P{level&amp;gt;cl">
+<meta name="twitter:image" content="https://preview.ibb.co/bAtjRH/IMG_20180110_215307.jpg">
 
 
 
@@ -357,7 +359,11 @@
       
 
       
-        <h2 id="跳跃表介绍"><a href="#跳跃表介绍" class="headerlink" title="跳跃表介绍"></a>跳跃表介绍</h2><h2 id="跳跃表实现"><a href="#跳跃表实现" class="headerlink" title="跳跃表实现"></a>跳跃表实现</h2><h2 id="跳跃表实际实际运用"><a href="#跳跃表实际实际运用" class="headerlink" title="跳跃表实际实际运用"></a>跳跃表实际实际运用</h2><h2 id="跳跃表和红黑树对比"><a href="#跳跃表和红黑树对比" class="headerlink" title="跳跃表和红黑树对比"></a>跳跃表和红黑树对比</h2>
+        <h2 id="跳跃表介绍"><a href="#跳跃表介绍" class="headerlink" title="跳跃表介绍"></a>跳跃表介绍</h2><p>如图：<br><img src="https://preview.ibb.co/bAtjRH/IMG_20180110_215307.jpg" alt="image"><br>生成跳跃表时，随机抛硬币，正面向上跃迁一级，每一级都做相同处理。<br>查找速度在O(logn)时间复杂度的动态数据结构。<br>具有实现简单的有点，因为是链表的结构。<br>术语：具有高概率是O(logn)。  </p>
+<p>概率：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P = 1-O(1/(n^α))(α≥1)</span><br></pre></td></tr></table></figure></p>
+<p>证明：<br>引入概念布尔不等式：指对于全部事件的概率总和不大于单个事件的概率总和。<br>跳跃表的层数为O(logn)的概率为：<br>P{level&gt;clogn}≤n*P{X|X为单个元素提升clogn次}=n*(1/2)^clogn = 1/n^(c-1) 令α=c-1 α≥1 。<br>那么层数至多为clogn的概率是1-1/n^α，α可以去特别大，层数为clogn的概率将会很高。<br>在搜索时，从要查找的数据出发回到起点，总的向上移动的次数至多为clogn，而总的移动次数小于等于出现clogn次数的抛硬币次数，即为搜索的时间复杂度。证明从查找数据点回到起点所抛硬币，出现clogn次正面的抛硬币次数为O(logn)的概率为1-1/n^α。<br>假设总共抛硬币的次数为10clogn，求P{出现至多为clogn次正面}，P≤C（10clogn，clogn）*（1/2）^(10clogn-clogn)<br>因为C（y,x）≤(ey/x)^x<br>P≤(10e)^clogn/ 2^9clogn= 2^(log10e-9)clogn =(1/2^(9-log10e)clogn) 令(9-log10e)c=α,P≤1/2^αlogn =1/n^α</p>
+<h2 id="跳跃表实现"><a href="#跳跃表实现" class="headerlink" title="跳跃表实现"></a>跳跃表实现</h2><h2 id="跳跃表实际实际运用"><a href="#跳跃表实际实际运用" class="headerlink" title="跳跃表实际实际运用"></a>跳跃表实际实际运用</h2><h2 id="跳跃表和红黑树对比"><a href="#跳跃表和红黑树对比" class="headerlink" title="跳跃表和红黑树对比"></a>跳跃表和红黑树对比</h2><p>跳跃表其实也是一棵树，等效的数，但是维护简单，没有红黑树那么多的旋转上色，而且也是具有随机性，在数据越多的时候，性能越接近O(logn)</p>
+
       
     </div>
     
