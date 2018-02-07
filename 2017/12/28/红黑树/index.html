@@ -87,13 +87,13 @@
 <meta property="og:site_name" content="cloudersjun&#39;s blog">
 <meta property="og:description" content="红黑树性质 颜色:所有节点非黑即红,根节点是黑色,红色节点的父节点是黑色,每个叶结点（叶结点即指树尾端NIL指针或NULL结点）都是黑的 平衡树:左边节点&amp;lt;根节点&amp;lt;右边节点,没有节点相同的点 树深度:每个节点到叶子节点的黑色节点数相同  证明树的高度O(lgn) 归纳法证明(略) 首先将所有红色的节点向上收到黑色的父节点,得到一棵高度为黑色节点高度的(bh)的树(由性质3可以得出),经">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/cloudersjun/blog/master/res/rotation.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/cloudersjun/blog/master/res/insert.jpg">
-<meta property="og:updated_time" content="2018-02-06T11:45:37.467Z">
+<meta property="og:image" content="https://preview.ibb.co/nK5W6H/IMG_20180102_152728.jpg">
+<meta property="og:image" content="https://preview.ibb.co/j5siLc/IMG_20180102_164748.jpg">
+<meta property="og:updated_time" content="2018-02-07T02:50:02.390Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="红黑树">
 <meta name="twitter:description" content="红黑树性质 颜色:所有节点非黑即红,根节点是黑色,红色节点的父节点是黑色,每个叶结点（叶结点即指树尾端NIL指针或NULL结点）都是黑的 平衡树:左边节点&amp;lt;根节点&amp;lt;右边节点,没有节点相同的点 树深度:每个节点到叶子节点的黑色节点数相同  证明树的高度O(lgn) 归纳法证明(略) 首先将所有红色的节点向上收到黑色的父节点,得到一棵高度为黑色节点高度的(bh)的树(由性质3可以得出),经">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/cloudersjun/blog/master/res/rotation.jpg">
+<meta name="twitter:image" content="https://preview.ibb.co/nK5W6H/IMG_20180102_152728.jpg">
 
 
 
@@ -369,7 +369,7 @@
 <li>归纳法证明(略)</li>
 <li>首先将所有红色的节点向上收到黑色的父节点,得到一棵高度为黑色节点高度的(bh)的树(由性质3可以得出),经过收敛得到一棵2-3-4树,即每个节点所含有的原有的节点数为2/3/4,则原有n+1个叶子节点，则 2^bh&lt;=n+1&lt;=4^bh bn&lt;=lg(n+1)&lt;=2bh,则bh&lt;=log(n+1),即输的黑色高度不超过log(n+1),而原树的节点为红黑相间,且一条根节点到叶子节点上,红色节点数不超过一半(颜色性质),则h&lt;=2bh&lt;=2log(n+1),得证</li>
 </ol>
-<h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><p>当数据更新时,红黑树不满足基本性质时,需要做旋转操作:<br><img src="https://raw.githubusercontent.com/cloudersjun/blog/master/res/rotation.jpg" alt=""></p>
+<h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><p>当数据更新时,红黑树不满足基本性质时,需要做旋转操作:<br><img src="https://preview.ibb.co/nK5W6H/IMG_20180102_152728.jpg" alt=""></p>
 <h2 id="红黑树更新-插入-删除"><a href="#红黑树更新-插入-删除" class="headerlink" title="红黑树更新(插入/删除)"></a>红黑树更新(插入/删除)</h2><p>插入新节点时,默认上色为红色,当颜色不合适时,重新上色或者旋转</p>
 <ol>
 <li>不需要作调整(插入的红节点刚好在黑色节点下)(color[p[new]]=black)</li>
@@ -380,7 +380,7 @@
 </ul>
 </li>
 </ol>
-<p>图示说明:<br><img src="https://raw.githubusercontent.com/cloudersjun/blog/master/res/insert.jpg" alt=""></p>
+<p>图示说明:<br><img src="https://preview.ibb.co/j5siLc/IMG_20180102_164748.jpg" alt=""></p>
 
       
     </div>
@@ -440,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/28/跳跃表/" rel="next" title="跳跃表">
-                <i class="fa fa-chevron-left"></i> 跳跃表
+              <a href="/2017/12/28/疑难杂症/" rel="next" title="疑难杂症">
+                <i class="fa fa-chevron-left"></i> 疑难杂症
               </a>
             
           </div>
@@ -450,8 +450,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/28/疑难杂症/" rel="prev" title="疑难杂症">
-                疑难杂症 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/03/mysql/" rel="prev" title="mysql">
+                mysql <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
